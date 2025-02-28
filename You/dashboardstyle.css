@@ -1,0 +1,101 @@
+/* dashboardstyle.css */
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #AA60C8, #D69ADE);
+    color: #333;
+}
+
+.dashboard-container {
+    text-align: center;
+}
+
+.note-box {
+    padding: 2rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    background: #4B164C;
+    color: white;
+}
+
+button:hover {
+    background: #DD88CF;
+}
+
+/* Pop-up Style (3/4 Paper Size) */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75vw; /* 3/4 paper width */
+    max-width: 800px; /* Limit max width */
+    height: 75vh; /* 3/4 paper height */
+    max-height: 600px; /* Limit max height */
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+.popup.active {
+    display: block;
+}
+
+.popup-content {
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #ff4b4b;
+}
+
+@media (max-width: 600px) {
+    .popup {
+        width: 90vw; /* Smaller screens get more width */
+        height: 80vh; /* Adjust height for small screens */
+    }
+}
+
+.nextBtn {
+
+    padding: 0.5rem 1rem;   /* Smaller padding */
+    font-size: 0.9rem;      /* Smaller font size */
+    float: right;           /* Align to the right */
+    margin-top: 1rem;
+    
+}

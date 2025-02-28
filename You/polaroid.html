@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scattered Polaroids</title>
+  <link rel="stylesheet" href="polaroidstyle.css">
+</head>
+<body>
+  <header>
+    <h1>A little journal</h1>
+    <p>I'm sorry baby I couldn't start the journal :></p>
+    <button id="nextBtn">Back</button>
+  </header>
+  <div class="scattered-container">
+    <div class="polaroid" id="p1" data-spotify="https://open.spotify.com/embed/track/4WgViu9gw3qYOr3iF9OuLG">
+      <img src="1.png" alt="Image 1">
+      <div class="caption">Memory 1</div>
+    </div>
+    <div class="polaroid" id="p2" data-spotify="https://open.spotify.com/embed/track/5sGZetzV9JUZCn8WkfgDEf">
+      <img src="2.png" alt="Image 2">
+      <div class="caption">Memory 2</div>
+    </div>
+    <div class="polaroid" id="p3" data-spotify="https://open.spotify.com/embed/track/1is8gU4RVcN4J8xItxWoOY">
+      <img src="3.png" alt="Image 3">
+      <div class="caption">Memory 3</div>
+    </div>
+    <div class="polaroid" id="p4" data-spotify="https://open.spotify.com/embed/track/3I4WFddKpe2PGZWFh7f10J">
+      <img src="4.png" alt="Image 4">
+      <div class="caption">Memory 4</div>
+    </div>
+    <div class="polaroid" id="p5" data-spotify="https://open.spotify.com/embed/track/1bYRmNYrXbzbLq1CEBZHRe">
+      <img src="5.png" alt="Image 5">
+      <div class="caption">Memory 5</div>
+    </div>
+    <div class="polaroid" id="p6" data-spotify="https://open.spotify.com/embed/track/56X9m1ObmJXyXU9NMeo08I">
+      <img src="6.png" alt="Image 6">
+      <div class="caption">Memory 6</div>
+    </div>
+    <div class="polaroid" id="p7" data-spotify="https://open.spotify.com/embed/track/3hnlpmJ0w98U92BwCYzoFf">
+      <img src="7.png" alt="Image 7">
+      <div class="caption">Memory 7</div>
+    </div>
+    <div class="polaroid" id="p8" data-spotify="https://open.spotify.com/embed/track/4S1DmI6dZ32tAQh53WTiXS">
+      <img src="8.png" alt="Image 8">
+      <div class="caption">Memory 8</div>
+    </div>
+    <div class="polaroid" id="p9" data-spotify="https://open.spotify.com/embed/track/5II8XNTmGAsegdcYFplDfN">
+      <img src="9.png" alt="Image 9">
+      <div class="caption">Memory 9</div>
+    </div>
+    <div class="polaroid" id="p10" data-spotify="https://open.spotify.com/embed/track/04Aw2jdHNkLAR9LWUIGf2b">
+      <img src="10.png" alt="Image 10">
+      <div class="caption">Memory 10</div>
+    </div>
+    <div class="polaroid" id="p11" data-spotify="https://open.spotify.com/embed/track/1dGr1c8CrMLDpV6mPbImSI">
+      <img src="11.png" alt="Image 11">
+      <div class="caption">Memory 11</div>
+    </div>
+    <div class="polaroid" id="p12" data-spotify="https://open.spotify.com/embed/track/4y5bvROuBDPr5fuwXbIBZR">
+      <img src="12.png" alt="Image 12">
+      <div class="caption">Memory 12</div>
+    </div>
+  </div>
+
+  <!-- Popup for Spotify song -->
+  <div id="songPopup" class="song-popup">
+    <span id="songPopupClose" class="popup-close">&times;</span>
+    <div class="popup-content">
+      <iframe id="spotifyIframe" src="" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const polaroids = document.querySelectorAll('.polaroid');
+    const songPopup = document.getElementById('songPopup');
+    const songPopupClose = document.getElementById('songPopupClose');
+    const spotifyIframe = document.getElementById('spotifyIframe');
+    const container = document.querySelector('.scattered-container');
+
+    polaroids.forEach(polaroid => {
+  polaroid.addEventListener('click', () => {
+    const spotifyUrl = polaroid.getAttribute('data-spotify');
+    if (spotifyUrl) {
+      spotifyIframe.src = spotifyUrl;
+      // Calculate position relative to the container
+      const containerRect = container.getBoundingClientRect();
+      const polyRect = polaroid.getBoundingClientRect();
+      // Position the popup below the clicked polaroid, with a small offset
+      songPopup.style.left = (polyRect.left - containerRect.left + 2) + 'px';
+      songPopup.style.top = (polyRect.bottom - containerRect.top + 2) + 'px';
+      songPopup.style.display = 'block';
+    }
+  });
+});
+
+    songPopupClose.addEventListener('click', () => {
+      songPopup.style.display = 'none';
+      spotifyIframe.src = '';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === songPopup) {
+        songPopup.style.display = 'none';
+        spotifyIframe.src = '';
+      }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', function() {
+        window.location.href = 'dashboard.html';
+    });
+  </script>
+  
+</body>
+</html>

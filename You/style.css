@@ -1,0 +1,69 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #AA60C8, #D69ADE);
+    color: white;
+}
+
+.locker-box {
+    display: flex;
+    flex-direction: row; /* Changed to row for horizontal layout */
+    align-items: center;
+    padding: 2rem;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.locker-image img {
+    max-width: 200px;
+    border-radius: 12px;
+    margin-right: 20px; /* Added margin for spacing */
+}
+
+.keypad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="password"] {
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 200px;
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #4B164C;
+}
+
+#message {
+    margin-top: 1rem;
+    color: #FF4B4B;
+}
